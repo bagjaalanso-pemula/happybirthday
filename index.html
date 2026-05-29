@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Ucapan Ulang Tahun</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to bottom, #fce4ec, #fff0f5);
+    color: #6a1045;
+    padding: 20px;
+    max-width: 600px;
+    margin: auto;
+    overflow-x: hidden;
+    position: relative;
+    min-height: 100vh;
+  }
+  
+  /* Latar Belakang dengan Emoji Bergerak */
+  .emoji-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+    overflow: hidden;
+  }
+  
+  .emoji {
+    position: absolute;
+    font-size: 30px;
+    animation: float 10s infinite ease-in-out;
+    opacity: 0.6;
+  }
+  
+  .emoji:nth-child(1) { left: 5%; animation-delay: 0s; animation-duration: 12s; }
+  .emoji:nth-child(2) { left: 15%; animation-delay: 1s; animation-duration: 14s; }
+  .emoji:nth-child(3) { left: 25%; animation-delay: 2s; animation-duration: 11s; }
+  .emoji:nth-child(4) { left: 35%; animation-delay: 3s; animation-duration: 13s; }
+  .emoji:nth-child(5) { left: 45%; animation-delay: 4s; animation-duration: 15s; }
+  .emoji:nth-child(6) { left: 55%; animation-delay: 0.5s; animation-duration: 12s; }
+  .emoji:nth-child(7) { left: 65%; animation-delay: 1.5s; animation-duration: 14s; }
+  .emoji:nth-child(8) { left: 75%; animation-delay: 2.5s; animation-duration: 11s; }
+  .emoji:nth-child(9) { left: 85%; animation-delay: 3.5s; animation-duration: 13s; }
+  .emoji:nth-child(10) { left: 95%; animation-delay: 4.5s; animation-duration: 15s; }
+  .emoji:nth-child(11) { left: 10%; animation-delay: 5s; animation-duration: 12s; }
+  .emoji:nth-child(12) { left: 30%; animation-delay: 6s; animation-duration: 14s; }
+  .emoji:nth-child(13) { left: 50%; animation-delay: 7s; animation-duration: 11s; }
+  .emoji:nth-child(14) { left: 70%; animation-delay: 8s; animation-duration: 13s; }
+  .emoji:nth-child(15) { left: 90%; animation-delay: 9s; animation-duration: 15s; }
+  
+  @keyframes float {
+    0% {
+      top: -10%;
+      transform: rotate(0deg) translateX(0px);
+    }
+    25% {
+      transform: rotate(15deg) translateX(20px);
+    }
+    50% {
+      top: 50%;
+      transform: rotate(-10deg) translateX(-20px);
+    }
+    75% {
+      transform: rotate(5deg) translateX(10px);
+    }
+    100% {
+      top: 110%;
+      transform: rotate(0deg) translateX(0px);
+    }
+  }
+  
+  .header-photo {
+    width: 150px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 20px;
+    display: block;
+    margin: 0 auto 20px auto;
+    box-shadow: 0 8px 20px rgba(233, 30, 99, 0.3);
+    position: relative;
+    z-index: 1;
+  }
+  .subtitle {
+    text-align: center;
+    font-style: italic;
+    font-size: 14px;
+    color: #cc6699;
+    margin-bottom: 5px;
+  }
+  .happy-birthday {
+    text-align: center;
+    letter-spacing: 3px;
+    font-weight: bold;
+    font-size: 13px;
+    color: #d35b8e;
+    margin-bottom: 20px;
+  }
+  h1 {
+    font-size: 28px;
+    font-weight: 900;
+    text-align: center;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(255,255,255,0.8);
+  }
+  p.intro {
+    font-size: 16px;
+    text-align: center;
+    margin-bottom: 40px;
+  }
+  .section {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(5px);
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 25px;
+    box-shadow: 0 4px 15px rgba(233, 30, 99, 0.1);
+  }
+  .section h2 {
+    background: #e91e63;
+    color: white;
+    border-radius: 12px 12px 0 0;
+    padding: 10px 20px;
+    margin: 0 -20px 15px -20px;
+  }
+  .section p {
+    font-size: 15px;
+    line-height: 1.5;
+    margin: 0;
+  }
+  .heart {
+    color: #db5a80;
+    margin-right: 6px;
+  }
+  ul.loves {
+    list-style: none;
+    padding-left: 10px;
+    margin-top: 0;
+  }
+  ul.loves li {
+    margin-bottom: 15px;
+    background: white;
+    padding: 12px 15px;
+    border-radius: 12px;
+    box-shadow: 0 0 5px #f1c4d7;
+  }
+  ul.loves li::before {
+    content: "♡";
+    color: #db5a80;
+    font-weight: bold;
+    margin-right: 6px;
+  }
+  .promise li {
+    background: white;
+    padding: 15px;
+    border-radius: 12px;
+    margin-bottom: 15px;
+    box-shadow: 0 0 5px #f1c4d7;
+  }
+  .promise li::before {
+    content: "✨";
+    margin-right: 7px;
+  }
+  .serius {
+    background: rgba(252, 228, 236, 0.8);
+    padding: 20px;
+    margin-top: 30px;
+    border-radius: 12px;
+    font-size: 15px;
+  }
+  .serius strong {
+    display: block;
+    font-size: 18px;
+    margin-top: 10px;
+    margin-bottom: 15px;
+    color: #d5006a;
+  }
+  .footer {
+    text-align: center;
+    margin-top: 40px;
+    font-style: italic;
+    font-size: 14px;
+    color: #cc6699;
+  }
+  .music-note {
+    text-align: center;
+    font-size: 24px;
+    animation: bounce 1s infinite;
+    margin: 20px 0;
+  }
+  @keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+</style>
+</head>
+<body>
+
+<!-- Latar Belakang dengan Emoji Bergerak -->
+<div class="emoji-bg">
+  <div class="emoji">🎂</div>
+  <div class="emoji">🎉</div>
+  <div class="emoji">🎈</div>
+  <div class="emoji">🎁</div>
+  <div class="emoji">🧁</div>
+  <div class="emoji">🎂</div>
+  <div class="emoji">🎉</div>
+  <div class="emoji">🎈</div>
+  <div class="emoji">🎁</div>
+  <div class="emoji">🧁</div>
+  <div class="emoji">🎂</div>
+  <div class="emoji">🎉</div>
+  <div class="emoji">🎈</div>
+  <div class="emoji">🎁</div>
+  <div class="emoji">🧁</div>
+</div>
+
+<!-- Elemen Audio untuk Autoplay -->
+<audio id="bgMusic" autoplay loop>
+  <source src="WhatsApp Audio 2026-05-29 at 17.12.53.mpeg" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
+
+<div class="music-note">
+  🎵 Klik di mana saja untuk memutar musik 🎵
+</div>
+
+<img src="WhatsApp Image 2026-05-29 at 16.12.59.jpeg" class="header-photo" />
+
+
+<p class="happy-birthday">H A P P Y &nbsp; 1 4 T H &nbsp; B I R T H D A Y</p>
+
+<h1>Selamat ulang tahun yang ke-14, Adinda Nathania ♡</h1>
+
+<p class="intro">
+Hari ini kamu resmi 14 tahun, dan al pengen kasih sesuatu yang kecil tapi tulus buat kamu.<br />
+Scroll pelan-pelan ya, ini semua aku bikin
+</p>
+
+<div class="section">
+  <h2>Babak Baru: 14 Tahun</h2>
+  <p><strong>Usia: 14 tahun</strong> <br /><em>al mau ucapin sesuatu sama kamu</em></p>
+  <p>
+    Di umur ke-14 ini, al ngeliat kamu bukan cuma sebagai seseorang yang lagi bertambah usia, tapi juga seseorang yang pelan-pelan tumbuh, belajar, jatuh, bangkit lagi, dan tetap jadi kamu yang al banggakan dan al cintai.
+  </p>
+</div>
+
+<div class="section">
+  <h2>Harapan Tahun Ini</h2>
+  <p><strong>Untuk: Adinda Nathania</strong></p>
+  <p>
+    Di usia baru ini, al cuma pengen kamu lebih bahagia, lebih tenang sama diri sendiri, dikelilingi orang-orang baik, dan selalu ngerasa cukup, apapun yang lagi kamu jalanin dan tetap jadi orang yang penyabar ya.
+  </p>
+</div>
+
+<p style="text-align:center; margin:30px 0; font-weight:bold;">Semoga di tiap halamannya, kamu selalu nemuin alasan buat senyum.</p>
+
+<div class="section">
+  <p>
+    Di usia 14 tahun ini, ada banyak banget hal tentang kamu yang bikin aku bersyukur bisa kenal dan deket sama kamu.
+  </p>
+  
+  <ul class="loves">
+    <li>Caramu jadi versi kamu sendiri tanpa pura-pura di depan orang.</li>
+    <li>Cara kamu mikirin aku, bahkan di saat kamu lagi capek.</li>
+    <li>Cara kamu ngadepin tingkah laku aku.</li>
+    <li>Cara kamu sabar.</li>
+    <li>Cara kamu bikin aku merasa di hargai dan dicintai.</li>
+    <li>Cara kamu ngertiin perasaan aku and banyak lagi.</li>
+  </ul>
+</div>
+
+<div class="section promise">
+  <h2>Janji Kecil di Usia 14</h2>
+  <p>
+    Di momen ulang tahunmu ini, aku pengin nitip beberapa janji kecil yang semoga bisa bikin kamu ngerasa lebih aman dan lebih disayang.
+  </p>
+  <ul>
+    <li>Aku janji bakal terus dukung kamu ngejar hal-hal yang kamu mau di usia 14 ini dan seterusnya.</li>
+    <li>Aku janji bakal jadi orang yang selalu kamu bisa ajak cerita, bahkan buat hal-hal kecil yang kelihatannya sepele.</li>
+    <li>Aku janji bakal jadi yang terbaik dan mengurangi sikap jail aku.</li>
+    <li>Aku janji bakal nyemangatin kamu waktu capek, dan nemenin kamu waktu kamu lagi ngerasa sendiri.</li>
+    <li>Aku janji di tahun berikutnya kita ngerayain hari ulang tahun kamu sama aku lagi.</li>
+  </ul>
+</div>
+
+<div class="serius">
+  <h2>Ucapan yang Sedikit Lebih Serius</h2>
+  <p>
+    Kalau kamu udah baca sampai bagian ini, berarti kamu bener-bener niat nerima kejutan kecil ini di hari ulang tahunmu. Jadi, ada beberapa kata yang pengin aku titip di sini.
+  </p>
+  <p>
+  Selamat ulang tahun, Sayang! 🎉🎂
+Pertama-tama, mari kita mengheningkan cipta sejenak untuk umur kamu yang berkurang, tapi tenang aja... kadar keimutan kamu tetep nambah kok (dikit sih, sisanya nambah rewel). Di hari spesial ini, aku mau ngasih selamat karena kamu udah berhasil bertahan menghadapi dunia yang keras ini, dan yang paling hebat: berhasil bertahan ngadepin semua sifat random aku. Kamu keren banget, asli!
+Di umur yang baru ini, aku mau kamu tetep jadi orang yang tangguh. Aku tahu kadang hari-hari kamu kerasa berat, tugas atau kerjaan numpuk, belum lagi mood yang suka naik turun kayak wahana Dufan. Tapi inget ya, kamu itu kuat banget. Kamu punya sejuta alasan buat sukses dan bahagia. Jadi, tetep semangat! Kejar semua mimpi-mimpi kamu, jangan males-malesan lagi, dan buktiin kalau kamu bisa naklukkin semua rintangan di depan sana. Aku selalu dukung kamu dari sini, jadi barisan nomor satu yang bakal tepuk tangan paling kenceng pas kamu berhasil nanti.
+Ingat ya, walaupun jarak lagi ga berpihak sama kita, dan aku ga bisa ada di samping kamu buat nemenin hari-hari melelahkanmu secara langsung, kamu harus tetep semangat. Jangan ngerasa sendirian. Anggap aja semangat dari aku itu kayak Wi-Fi: ga kelihatan, tapi sinyalnya selalu nyambang dan nguatin kamu dari jauh. Kamu harus tetep bersinar dan tersenyum, ya?
+Tapi jujur, makin aku nulis ini, makin aku sadar... sekuat-kuatnya aku nyuruh kamu semangat tanpa kehadiran aku di sisimu, hati aku tetep ga bisa bohong. Rasanya nyesek banget pas sadar kalau di hari seistimewa ini, bukan aku yang ada di sebelah kamu buat tiup lilin bareng, bukan tangan aku yang bisa meluk kamu pas kamu ngerasa capek, dan bukan aku orang pertama yang bisa kamu lihat pas kamu buka mata di hari ulang tahunmu ini. Aku benci jarak ini, karena di saat kamu paling butuh sandaran, aku cuma bisa jadi sebaris teks di layar HP kamu.
+  </p>
+  <strong>
+    Selamat ulang tahun yang ke-14, Sayang. Hopefully this year will be better for you. ♡
+  </strong>
+</div>
+
+<p class="footer">terima kasih sayanggg </p>
+
+<script>
+  // Script untuk mencoba autoplay musik
+  var audio = document.getElementById("bgMusic");
+  
+  // Coba autoplay saat halaman dimuat
+  function playMusic() {
+    audio.play().catch(function(error) {
+      console.log("Autoplay diblokir oleh browser. Pengguna perlu klik manually.");
+    });
+  }
+  
+  // coba autoplay saat halaman dimuat
+  window.addEventListener("load", playMusic);
+  
+  // Jika autoplay gagal, coba lagi saat pengguna klik di mana saja
+  document.addEventListener("click", function() {
+    audio.play().catch(function(error) {
+      console.log("Gagal memutar musik.");
+    });
+  });
+</script>
+
+</body>
+</html>
